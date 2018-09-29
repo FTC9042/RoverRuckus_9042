@@ -26,4 +26,20 @@ public class DriveTrain {
     public void setPower(double power){
         setPower(power,power);
     }
+
+    public DcMotor getMotor1() {
+        return motor1;
+    }
+
+    public DcMotor getMotor2() {
+        return motor2;
+    }
+
+    public DcMotor getMotor3() {
+        return motor3;
+    }
+
+    public DcMotor getMotor4() {
+        return motor4;
+    }
 }
