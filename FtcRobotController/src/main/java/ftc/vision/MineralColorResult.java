@@ -25,6 +25,7 @@ public class MineralColorResult {
 
     public enum MineralColor{
         GOLD (ImageUtil.YELLOW),
+        SILVER (ImageUtil.WHITE),
         UNKNOWN(ImageUtil.BLACK);
 
         public final Scalar color;

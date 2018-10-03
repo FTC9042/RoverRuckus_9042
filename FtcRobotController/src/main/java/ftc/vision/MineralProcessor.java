@@ -44,7 +44,7 @@ public class MineralProcessor implements ImageProcessor<MineralColorResult> {
         // much of a color is present on that side (in units of scaled pixels that pass the
         // color filter). This variable keeps track of the mass
         // of the color that ended up having the most "color mass" on each side.
-        double [] maxMass = { Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE }; //max mass for left and right
+        double [] maxMass = { Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE}; //max mass for left and right
         // This next variable keeps track of the color on each side that had the max "color mass"
         // with  0=Gold  1=Silver 2=UNKNOWN
         // So both sides start as unknown:

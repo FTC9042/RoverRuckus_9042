@@ -13,6 +13,7 @@ public class MineralDetectionOp extends LinearOpMode {
       waitForStart();
       while(opModeIsActive()) {
           FrameGrabber frameGrabber = FtcRobotControllerActivity.frameGrabber; //Get the frameGrabber
+          frameGrabber.setSaveImages(false);
 
           frameGrabber.grabSingleFrame(); //Tell it to grab a frame
           while (!frameGrabber.isResultReady()) { //Wait for the result
