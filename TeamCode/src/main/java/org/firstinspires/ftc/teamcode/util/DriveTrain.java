@@ -13,6 +13,18 @@ public class DriveTrain {
         motor2 = map.dcMotor.get(Constants.DRIVE_MOTOR_BL);
         motor3 = map.dcMotor.get(Constants.DRIVE_MOTOR_TR);
         motor4 = map.dcMotor.get(Constants.DRIVE_MOTOR_BR);
+
+        motor1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor3.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motor4.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    }
+
+    public void setPower(double l1, double l2, double r1, double r2){
+        motor1.setPower(l1);
+        motor2.setPower(l2);
+        motor3.setPower(r1);
+        motor4.setPower(r2);
     }
 
     public void setPower(double left, double right){
