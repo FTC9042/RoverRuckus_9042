@@ -9,12 +9,10 @@ import org.firstinspires.ftc.teamcode.util.DriveTrain;
 @TeleOp(name = "Teleop")
 public class Teleop extends OpMode {
     DriveTrain driveTrain;
-    private DcMotor intake;
 
     @Override
     public void init() {
         driveTrain = new DriveTrain(this.hardwareMap);
-        intake = this.hardwareMap.dcMotor.get("intake");
     }
 
     @Override
@@ -25,6 +23,5 @@ public class Teleop extends OpMode {
             driveTrain.setPower(this.gamepad1.left_stick_y, this.gamepad1.right_stick_y);
         }
 
-        intake.setPower(gamepad2.right_stick_y);
     }
 }

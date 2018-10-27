@@ -18,6 +18,16 @@ public class DriveTrain {
         motor2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motor3.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motor4.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+    }
+
+    public void setMode(DcMotor.RunMode mode) {
+        motor1.setMode(mode);
+        motor2.setMode(mode);
+        motor3.setMode(mode);
+        motor4.setMode(mode);
     }
 
     public void setPower(double l1, double l2, double r1, double r2){
@@ -52,5 +62,28 @@ public class DriveTrain {
 
     public DcMotor getMotor4() {
         return motor4;
+    }
+
+    public double[] getPosition(){
+        double[] arr = new double[4];
+
+        arr[0] = motor1.getCurrentPosition();
+        arr[1] = motor2.getCurrentPosition();
+        arr[2] = motor3.getCurrentPosition();
+        arr[3] = motor4.getCurrentPosition();
+
+        return arr;
+    }
+
+    public double getAveragePositionLeft(){
+        double arr[] = getPosition();
+        double avg = (arr[0] + arr[1])/2.0;
+        return avg;
+    }
+
+    public double getAveragePositionRight(){
+        double arr[] = getPosition();
+        double avg = (arr[2] + arr[3])/2.0;
+        return avg;
     }
 }
