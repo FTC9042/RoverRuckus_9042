@@ -39,16 +39,15 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@TeleOp(name="Sampling Order Example", group="DogeCV")
+@TeleOp(name="Sampling Order Test", group="DogeCV")
 
-public class SamplingOrderExample extends OpMode {
+public class SamplingOrderTest extends OpMode {
     // Detector object
     private SamplingOrderDetector detector;
 
 
     @Override
     public void init() {
-        telemetry.addData("Status", "DogeCV 2018.0 - Sampling Order Example");
 
         // Setup detector
         detector = new SamplingOrderDetector(); // Create the detector
