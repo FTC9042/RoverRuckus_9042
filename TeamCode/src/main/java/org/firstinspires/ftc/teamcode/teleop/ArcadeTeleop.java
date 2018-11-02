@@ -2,12 +2,11 @@ package org.firstinspires.ftc.teamcode.teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
 
-@TeleOp(name = "Teleop")
-public class Teleop extends OpMode {
+@TeleOp(name = "ArcadeTeleop")
+public class ArcadeTeleop extends OpMode {
     DriveTrain driveTrain;
 
     @Override
@@ -17,12 +16,14 @@ public class Teleop extends OpMode {
 
     @Override
     public void loop() {
-        if(gamepad1.right_trigger >0.5){
-            driveTrain.setPower(this.gamepad1.left_stick_y*0.3, this.gamepad1.right_stick_y*0.3);
-        }else {
-            driveTrain.setPower(Math.pow(this.gamepad1.left_stick_y,3), Math.pow(this.gamepad1.right_stick_y,3));
-        }
+        float yval = gamepad1.left_stick_y;
+        float xval = gamepad1.right_stick_x;
 
+
+        float lpwr = (float) Math.pow(((yval - xval)), 3);
+        float rpwr = (float) Math.pow((yval + xval), 3);
+
+        driveTrain.setPower(lpwr, rpwr);
 
     }
 }

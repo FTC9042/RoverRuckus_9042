@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode.util;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class DriveTrain {
     private DcMotor motor1, motor2; //Left Motors
     private DcMotor motor3, motor4; //Right Motors
+
+    private boolean nova = false;
 
     //TODO consider using the DcMotorEx class
     public DriveTrain(HardwareMap map){
@@ -21,6 +24,11 @@ public class DriveTrain {
 
         setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+        if(nova){
+            motor1.setDirection(DcMotorSimple.Direction.REVERSE);
+            motor2.setDirection(DcMotorSimple.Direction.REVERSE);
+        }
     }
 
     public void setMode(DcMotor.RunMode mode) {

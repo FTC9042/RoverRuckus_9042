@@ -14,6 +14,9 @@ public class LifterTest  extends OpMode {
         extend = hardwareMap.dcMotor.get("0");
         left_lift = hardwareMap.dcMotor.get("1");
         right_lift = hardwareMap.dcMotor.get("2");
+
+        left_lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        right_lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
     }
 
     @Override
