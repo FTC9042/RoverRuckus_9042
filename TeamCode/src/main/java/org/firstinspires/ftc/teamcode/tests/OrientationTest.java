@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.util.Gyro;
+import org.firstinspires.ftc.teamcode.util.Logging;
 
 @Autonomous(name = "Orientation Test")
 public class OrientationTest extends OpMode {
@@ -17,9 +18,9 @@ public class OrientationTest extends OpMode {
 
     @Override
     public void loop() {
-        telemetry.addData("Roll", gyro.getRoll());
-        telemetry.addData("Pitch", gyro.getPitch());
-        telemetry.addData("Yaw", gyro.getYaw());
+        Logging.log("Roll", gyro.getRoll(), telemetry);
+        Logging.log("Pitch", gyro.getPitch(), telemetry);
+        Logging.log("Yaw", gyro.getYaw(), telemetry);
         telemetry.update();
     }
 }
