@@ -41,8 +41,16 @@ public class GoldAlign extends LinearOpMode {
         waitForStart();
         driveTrain.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        driveTrain.setPower(-0.3,0.3);
         ElapsedTime t = new ElapsedTime();
+        t.reset();
+        driveTrain.setPower(0.2);
+        while(t.seconds()<3 && opModeIsActive()){
+            telemetry.addData("Driving", "Forward");
+            telemetry.update();
+        }
+
+        t.reset();
+        driveTrain.setPower(-0.3,0.3);
         while(t.seconds()<3 && opModeIsActive()){
             telemetry.addData("Turning", "Left");
             telemetry.update();
