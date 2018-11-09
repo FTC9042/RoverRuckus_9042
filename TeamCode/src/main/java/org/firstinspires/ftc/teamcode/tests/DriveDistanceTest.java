@@ -25,21 +25,20 @@ public class DriveDistanceTest extends LinearOpMode{
 
         while(opModeIsActive()){
 
-            if(Math.abs(target * Constants.TICKS_INCH - Math.abs(driveTrain.getAveragePositionLeft())) < Constants.TOLERANCE){
+            double leftPos = Math.abs(driveTrain.getAveragePositionLeft());
+            double rightPos = Math.abs(driveTrain.getAveragePositionRight());
+
+            if(proportional.reachedTarget(leftPos, rightPos)){
                 break;
             }
 
-            if(Math.abs(target * Constants.TICKS_INCH - Math.abs(driveTrain.getAveragePositionRight())) < Constants.TOLERANCE){
-                break;
-            }
-
-            double leftPower = proportional.getValue(driveTrain.getAveragePositionLeft());
-            double rightPower = proportional.getValue(driveTrain.getAveragePositionRight());
+            double leftPower = proportional.getValue(leftPos);
+            double rightPower = proportional.getValue(rightPos);
 
             driveTrain.setPower(leftPower,rightPower);
 
-            telemetry.addData("Left Position", driveTrain.getAveragePositionLeft());
-            telemetry.addData("Right Position", driveTrain.getAveragePositionRight());
+            telemetry.addData("Left Position", leftPos);
+            telemetry.addData("Right Position", rightPos);
             telemetry.update();
         }
 

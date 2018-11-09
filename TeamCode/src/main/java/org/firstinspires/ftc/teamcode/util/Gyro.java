@@ -34,7 +34,7 @@ public class Gyro {
 
     }
 
-    //TODO: CHANGE THE AXES
+    //TODO: CHANGE THE AXES BASED ON WHERE THE HUB IS PLACED
     private void updateAngles() {
         angles = imu.getAngularOrientation(AxesReference.INTRINSIC,AxesOrder.ZYX,AngleUnit.DEGREES);
     }

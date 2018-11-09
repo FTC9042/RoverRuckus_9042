@@ -25,4 +25,10 @@ public class Proportional {
         }
         return power;
     }
+
+    public boolean reachedTarget(double posLeft, double posRight){
+        boolean left = Math.abs(target * Constants.TICKS_INCH - Math.abs(posLeft)) < Constants.TOLERANCE;
+        boolean right = Math.abs(target * Constants.TICKS_INCH - Math.abs(posRight)) < Constants.TOLERANCE;
+        return left && right;
+    }
 }
