@@ -9,12 +9,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
+import org.firstinspires.ftc.teamcode.util.Gyro;
 
 @Autonomous(name = "Align Gold")
 public class GoldAlign extends LinearOpMode {
     // Detector object
     private GoldAlignDetector detector;
     DriveTrain driveTrain;
+    private Gyro gyro;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -23,7 +25,7 @@ public class GoldAlign extends LinearOpMode {
         detector.init(hardwareMap.appContext, CameraViewDisplay.getInstance());
         detector.useDefaults();
 
-        detector.alignSize = 100;
+        detector.alignSize = 225;
         detector.alignPosOffset = 0;
         detector.downscale = 0.4;
 
@@ -36,6 +38,7 @@ public class GoldAlign extends LinearOpMode {
         detector.enable();
 
         driveTrain = new DriveTrain(hardwareMap);
+        gyro = new Gyro(hardwareMap);
 
         driveTrain.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
