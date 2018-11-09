@@ -43,34 +43,59 @@ public class GoldAlign extends LinearOpMode {
 
         ElapsedTime t = new ElapsedTime();
         t.reset();
-        driveTrain.setPower(0.2);
-        while(t.seconds()<3 && opModeIsActive()){
+        driveTrain.setPower(-0.5);
+        //make sure it is close enough to detect the mineral (change time)
+        while(t.seconds()<1 && opModeIsActive()){
             telemetry.addData("Driving", "Forward");
             telemetry.update();
         }
 
         t.reset();
         driveTrain.setPower(-0.3,0.3);
-        while(t.seconds()<3 && opModeIsActive()){
+        //align with the first mineral (change time)
+        while(t.seconds()<0.5 && opModeIsActive()){
             telemetry.addData("Turning", "Left");
             telemetry.update();
         }
-        driveTrain.setPower(0);
 
         t.reset();
-        driveTrain.setPower(0.1,-0.1);
-        while(opModeIsActive() && t.seconds()<10){
+        double rot = 1;
+        driveTrain.setPower(0.3,-0.3);
+        //by default hit the last mineral (change time) make sure can detect mineral (change turn power)
+        while(opModeIsActive() && t.seconds()<1){
+            telemetry.addData("Turning", "Mineral");
+            telemetry.update();
             if(detector.getAligned()){
+                rot = t.seconds();
                 break;
             }
         }
-        driveTrain.setPower(0);
 
         t.reset();
-        driveTrain.setPower(0.7);
-        while (opModeIsActive() && t.seconds()<3){
+        driveTrain.setPower(-0.7);
+        //drive just far enough to hit the mineral
+        while (opModeIsActive() && t.seconds()<1){
             telemetry.addData("Hitting", "Mineral");
         }
         driveTrain.setPower(0);
+
+        t.reset();
+        driveTrain.setPower(-0.3,0.3);
+        //turn back so aligned to marker pit(check if needed)
+        while(opModeIsActive() && t.seconds()<rot/2){
+            telemetry.addData("Turning", "Back");
+            telemetry.update();
+        }
+
+        t.reset();
+        driveTrain.setPower(-0.7);
+        //drive to the marker area
+        while (opModeIsActive() && t.seconds()<1){
+            telemetry.addData("Drive", "to marker drop");
+        }
+        driveTrain.setPower(0);
+
+        //drop the marker
+        hardwareMap.servo.get("marker").setPosition(0); //check if correct (0 or 1)
     }
 }
