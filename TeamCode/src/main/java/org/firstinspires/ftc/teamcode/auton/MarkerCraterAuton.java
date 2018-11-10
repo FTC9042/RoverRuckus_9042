@@ -55,29 +55,46 @@ public class MarkerCraterAuton extends LinearOpMode{
         //two second pause
         ElapsedTime t = new ElapsedTime();
         t.reset();
-        while(t.seconds()<2);
+        while(t.seconds()<2){
+            telemetry.addData("pause", "2 seconds");
+            telemetry.update();
+        }
 
         hardwareMap.servo.get("marker").setPosition(1); //check if correct (0 or 1) lift servo back up
 
         //two second pause
         t = new ElapsedTime();
         t.reset();
-        while(t.seconds()<2);
+        while(t.seconds()<2){
+            telemetry.addData("pause", "2 seconds");
+            telemetry.update();
+        }
 
         //turning 135 degrees
         //is it yaw?
-        while(gyro.getYaw() < 135 && opModeIsActive()){
+        while(opModeIsActive()){
             telemetry.addData("turning", "to Crater");
             telemetry.addData("yaw", gyro.getYaw());
+            telemetry.addData("pitch", gyro.getPitch());
+            telemetry.addData("roll", gyro.getRoll());
             telemetry.update();
             driveTrain.setPower(-0.3, 0.3);
+
+            if(Math.abs(gyro.getYaw()) >= 135 ){
+                driveTrain.setPower(0);
+                break;
+            }
         }
-        driveTrain.setPower(0);
 
         //two second pause
         t = new ElapsedTime();
         t.reset();
-        while(t.seconds()<2);
+        while(t.seconds()<2){
+            telemetry.addData("pause", "2 seconds");
+            telemetry.update();
+        }
+
+        driveTrain.setPower(-0.5); //going forward at half power
 
         //starting encoder values (since we did not reset again)
         double leftPosStart = Math.abs(driveTrain.getAveragePositionLeft());
