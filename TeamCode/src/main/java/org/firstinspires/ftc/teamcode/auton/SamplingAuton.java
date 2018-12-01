@@ -43,8 +43,9 @@ public class SamplingAuton extends LinearOpMode {
         }
 
         //TODO combine
+        //if it can't fine at 34 inches try detecting at 17 (that is definitely possible)
         //headings
-        //Center go forward 34 inches, stop, go forward 34 inches
+        //Center go forward 34 inches, stop 2 seconds, go forward 34 inches
         //left go forward 17 inches, turn 45 degrees ccw, go forward 24 inches, go back 24 inches, turn 45 degrees cw
         //right go forward 17 inches, turn 45 degrees cw, go forward 24 inches, go back 24 inches, turn 45 degrees ccw
 
