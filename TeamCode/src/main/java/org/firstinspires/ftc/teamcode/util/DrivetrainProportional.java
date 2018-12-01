@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.tests;
+package org.firstinspires.ftc.teamcode.util;
 
 import org.firstinspires.ftc.teamcode.util.Constants;
 
-public class Proportional {
+public class DrivetrainProportional {
     public static double P_Constant, target;
 
-    public Proportional(double P, double target){
+    public DrivetrainProportional(double P, double target){
         this.P_Constant = P;
         this.target = target;
     }

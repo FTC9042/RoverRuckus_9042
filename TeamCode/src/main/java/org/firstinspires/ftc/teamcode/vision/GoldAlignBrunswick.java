@@ -9,12 +9,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
+import org.firstinspires.ftc.teamcode.util.Gyro;
 
-@Autonomous(name = "Align Gold")
-public class GoldAlign extends LinearOpMode {
+@Autonomous(name = "Align Gold Brunswick")
+public class GoldAlignBrunswick extends LinearOpMode {
     // Detector object
     private GoldAlignDetector detector;
     DriveTrain driveTrain;
+    private Gyro gyro;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -23,7 +25,7 @@ public class GoldAlign extends LinearOpMode {
         detector.init(hardwareMap.appContext, CameraViewDisplay.getInstance());
         detector.useDefaults();
 
-        detector.alignSize = 100;
+        detector.alignSize = 225;
         detector.alignPosOffset = 0;
         detector.downscale = 0.4;
 
@@ -36,6 +38,7 @@ public class GoldAlign extends LinearOpMode {
         detector.enable();
 
         driveTrain = new DriveTrain(hardwareMap);
+        gyro = new Gyro(hardwareMap);
 
         driveTrain.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
@@ -50,6 +53,8 @@ public class GoldAlign extends LinearOpMode {
             telemetry.update();
         }
 
+        driveTrain.setPower(0);
+
         t.reset();
         driveTrain.setPower(-0.3,0.3);
         //align with the first mineral (change time)
@@ -57,6 +62,8 @@ public class GoldAlign extends LinearOpMode {
             telemetry.addData("Turning", "Left");
             telemetry.update();
         }
+
+        driveTrain.setPower(0);
 
         t.reset();
         double rot = 1;
@@ -70,6 +77,7 @@ public class GoldAlign extends LinearOpMode {
                 break;
             }
         }
+        driveTrain.setPower(0);
 
         t.reset();
         driveTrain.setPower(-0.7);
@@ -81,11 +89,16 @@ public class GoldAlign extends LinearOpMode {
 
         t.reset();
         driveTrain.setPower(-0.3,0.3);
+        Gyro g = new Gyro(hardwareMap);
         //turn back so aligned to marker pit(check if needed)
         while(opModeIsActive() && t.seconds()<rot/2){
             telemetry.addData("Turning", "Back");
             telemetry.update();
+            if(Math.abs(Math.abs(g.getYaw())-0) <0.3){
+                break;
+            }
         }
+        driveTrain.setPower(0);
 
         t.reset();
         driveTrain.setPower(-0.7);

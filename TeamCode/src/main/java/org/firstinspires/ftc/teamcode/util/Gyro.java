@@ -54,4 +54,7 @@ public class Gyro {
         return angles.firstAngle;
     }
 
+    public double getHeading() {
+        return getYaw();
+    }
 }

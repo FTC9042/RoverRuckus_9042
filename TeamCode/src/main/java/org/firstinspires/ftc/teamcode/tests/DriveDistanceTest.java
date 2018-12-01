@@ -6,6 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.util.Constants;
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
+import org.firstinspires.ftc.teamcode.util.DrivetrainProportional;
 
 @Autonomous(name = "Drive Distance Test")
 public class DriveDistanceTest extends LinearOpMode{
@@ -17,14 +18,13 @@ public class DriveDistanceTest extends LinearOpMode{
 
         double target = 25;
 
-        Proportional proportional = new Proportional(Constants.P_CONSTANT_DRIVING, target);
+        DrivetrainProportional proportional = new DrivetrainProportional(Constants.P_CONSTANT_DRIVING, target);
 
         driveTrain.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         waitForStart();
         driveTrain.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         while(opModeIsActive()){
-
             double leftPos = Math.abs(driveTrain.getAveragePositionLeft());
             double rightPos = Math.abs(driveTrain.getAveragePositionRight());
 
@@ -35,10 +35,13 @@ public class DriveDistanceTest extends LinearOpMode{
             double leftPower = proportional.getValue(leftPos);
             double rightPower = proportional.getValue(rightPos);
 
-            driveTrain.setPower(leftPower,rightPower);
+            //to go forward
+            driveTrain.setPower(-leftPower,-rightPower);
 
             telemetry.addData("Left Position", leftPos);
             telemetry.addData("Right Position", rightPos);
+            telemetry.addData("Left Power", leftPower);
+            telemetry.addData("Right Power", rightPower);
             telemetry.update();
         }
 

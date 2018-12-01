@@ -14,9 +14,9 @@ public class LandingTest extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        extend = hardwareMap.dcMotor.get("0");
-        left_lift = hardwareMap.dcMotor.get("1");
-        right_lift = hardwareMap.dcMotor.get("2");
+        extend = hardwareMap.dcMotor.get("extend");
+        left_lift = hardwareMap.dcMotor.get("left");
+        right_lift = hardwareMap.dcMotor.get("right");
 
         extend.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         left_lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -42,7 +42,7 @@ public class LandingTest extends LinearOpMode {
 
         ElapsedTime t = new ElapsedTime();
         t.startTime();
-        while(opModeIsActive() &t.seconds()<1){
+        while(opModeIsActive() & t.seconds()<1){
             left_lift.setPower(-0.4);
             right_lift.setPower(-0.4);
         }

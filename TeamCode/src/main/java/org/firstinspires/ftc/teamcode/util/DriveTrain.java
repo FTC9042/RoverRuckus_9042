@@ -24,11 +24,6 @@ public class DriveTrain {
 
         setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-
-        if(nova){
-            motor1.setDirection(DcMotorSimple.Direction.REVERSE);
-            motor2.setDirection(DcMotorSimple.Direction.REVERSE);
-        }
     }
 
     public void setMode(DcMotor.RunMode mode) {

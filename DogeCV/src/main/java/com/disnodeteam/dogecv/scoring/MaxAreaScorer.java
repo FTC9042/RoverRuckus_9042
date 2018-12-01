@@ -11,7 +11,7 @@ import org.opencv.imgproc.Imgproc;
  */
 
 public class MaxAreaScorer extends DogeCVScorer{
-    public double weight       = 1.0;
+    public double weight = 1.0;
     /**
      * Constructor
      * @param weight - How much to weight the final score (1-10 is usually good)

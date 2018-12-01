@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-@TeleOp(name="GoldAlignTest Test", group="DogeCV")
+@TeleOp(name="GoldAlignBrunswick Test", group="DogeCV")
 
 public class GoldAlignTest extends OpMode
 {
