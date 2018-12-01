@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Landing Test")
+@Autonomous(name = "Landing Test", group = "landing")
 public class LandingTest extends LinearOpMode {
     DcMotor extend;
     DcMotor left_lift, right_lift;

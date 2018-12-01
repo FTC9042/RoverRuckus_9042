@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.auton;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.MineralDetection;
 
@@ -23,13 +24,29 @@ public class SamplingAuton extends LinearOpMode {
         waitForStart();
 
         if(opModeIsActive()){
+            ElapsedTime t = new ElapsedTime();
+            t.reset();
             while(location.compareTo(SamplingOrderDetector.GoldLocation.UNKNOWN) == 0){
                 telemetry.addData("Position", location.toString());
                 telemetry.update();
                 if(!opModeIsActive()){
                     break;
                 }
+                if(t.seconds()>5){
+                    break;
+                }
             }
         }
+
+        while (opModeIsActive()){
+            telemetry.addData("Detected Position", location.toString());
+        }
+
+        //TODO combine
+        //headings
+        //Center go forward 34 inches, stop, go forward 34 inches
+        //left go forward 17 inches, turn 45 degrees ccw, go forward 24 inches, go back 24 inches, turn 45 degrees cw
+        //right go forward 17 inches, turn 45 degrees cw, go forward 24 inches, go back 24 inches, turn 45 degrees ccw
+
     }
 }

@@ -1,11 +1,11 @@
-package org.firstinspires.ftc.teamcode.teleop;
+package org.firstinspires.ftc.teamcode.tests;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
 
-@TeleOp(name = "TickCounter", group = "test")
+@Autonomous(name = "TickCounter", group = "Driving Forward")
 public class TickTest extends OpMode {
     DriveTrain driveTrain;
 

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.AnalogInput;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.util.Potentiometer;
 
-@Autonomous(name = "StringPotTest")
+@Autonomous(name = "StringPotTest", group = "misc")
 public class StringPotTest extends OpMode {
     private Potentiometer potentiometer;
 

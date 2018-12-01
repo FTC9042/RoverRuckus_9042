@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import org.firstinspires.ftc.teamcode.util.Gyro;
 import org.firstinspires.ftc.teamcode.util.Logging;
 
-@Autonomous(name = "Orientation Test")
+@Autonomous(name = "Orientation Test", group = "turning")
 public class OrientationTest extends OpMode {
 
     Gyro gyro;
