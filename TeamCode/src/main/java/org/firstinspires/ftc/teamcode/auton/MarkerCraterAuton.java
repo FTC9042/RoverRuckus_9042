@@ -49,6 +49,7 @@ public class MarkerCraterAuton extends LinearOpMode{
                 break;
             }
         }
+        driveTrain.setPower(0);
 
         hardwareMap.servo.get("marker").setPosition(0); //check if correct (0 or 1) drop marker
 
@@ -85,6 +86,7 @@ public class MarkerCraterAuton extends LinearOpMode{
                 break;
             }
         }
+        driveTrain.setPower(0);
 
         //two second pause
         t = new ElapsedTime();
@@ -123,5 +125,6 @@ public class MarkerCraterAuton extends LinearOpMode{
                 break;
             }
         }
+        driveTrain.setPower(0);
     }
 }

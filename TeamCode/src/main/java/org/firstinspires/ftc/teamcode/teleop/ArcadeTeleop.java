@@ -1,17 +1,20 @@
 package org.firstinspires.ftc.teamcode.teleop;
 
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
 
 @TeleOp(name = "ArcadeTeleop")
 public class ArcadeTeleop extends OpMode {
-    DriveTrain driveTrain;
+
+    DriveTrain dt;
 
     @Override
     public void init() {
-        driveTrain = new DriveTrain(this.hardwareMap);
+        dt = new DriveTrain(hardwareMap);
     }
 
     @Override
@@ -23,7 +26,17 @@ public class ArcadeTeleop extends OpMode {
         float lpwr = (float) Math.pow(((yval - xval)), 3);
         float rpwr = (float) Math.pow((yval + xval), 3);
 
-        driveTrain.setPower(lpwr, rpwr);
+        dt.setPower(lpwr,rpwr);
+
+        Servo dump = hardwareMap.servo.get("dump");
+
+        if (gamepad2.right_bumper){
+            dump.setPosition(0);
+        }
+        if(gamepad2.left_bumper) {
+            dump.setPosition(1);
+        }
+
 
     }
 }

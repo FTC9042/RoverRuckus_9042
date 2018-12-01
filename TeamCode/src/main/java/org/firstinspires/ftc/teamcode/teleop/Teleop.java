@@ -63,7 +63,7 @@ public class Teleop extends OpMode {
             dump.setPosition(1);
         }
 
-        intake.setPower(power);
+        intake.setPower(Math.pow(power, 1/5.0));
 
     }
 }
