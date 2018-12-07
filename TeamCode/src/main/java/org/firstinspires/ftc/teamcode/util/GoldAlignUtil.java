@@ -15,7 +15,6 @@ public class GoldAlignUtil {
     }
 
     public void init(){
-
         detector = new GoldAlignDetector();
 
         detector.init(hardwareMap.appContext, CameraViewDisplay.getInstance(), 0, false);
@@ -34,23 +33,19 @@ public class GoldAlignUtil {
         detector.ratioScorer.perfectRatio = 1.0;
 
         detector.enable();
-
     }
 
-    public boolean isAligned() {
 
-        return detector.getAligned();
-    }
-
-    public double getXPos() {
-
+    public double getXPosition() {
         return detector.getXPosition();
     }
 
+    public boolean isAligned() {
+        return detector.getAligned();
+    }
+
     public void stop(){
-
         detector.disable();
-
     }
 
 }

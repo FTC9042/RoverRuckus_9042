@@ -15,20 +15,22 @@ public class GoldAlignAuton extends LinearOpMode {
     private GoldAlignUtil util;
 
     @Override
-    public void runOpMode() throws InterruptedException {
+    public void runOpMode() {
         driveTrain = new DriveTrain(hardwareMap);
         util = new GoldAlignUtil(hardwareMap);
         util.init();
+
         waitForStart();
 
         while (opModeIsActive() && util.isAligned() != true){
-            double xpos = util.getXPos();
+            double xpos = util.getXPosition();
             alignToGold(xpos);
             Logging.log("X Position", xpos,telemetry);
             Logging.log("offset", offset,telemetry);
             telemetry.update();
         }
         driveTrain.stop();
+        util.stop();
     }
 
     public void alignToGold(double dir){

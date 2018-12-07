@@ -1,10 +1,8 @@
 package org.firstinspires.ftc.teamcode.auton;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
-import org.firstinspires.ftc.teamcode.util.DriveTrain;
 import org.firstinspires.ftc.teamcode.util.GoldAlignUtil;
 import org.firstinspires.ftc.teamcode.util.Logging;
 
@@ -22,11 +20,17 @@ public class GoldAlignTest extends OpMode {
 
     @Override
     public void loop() {
-        double xpos = util.getXPos();
+        double xpos = util.getXPosition();
         boolean isAligned = util.isAligned();
         Logging.log("X Position", xpos,telemetry);
         Logging.log("offset", offset,telemetry);
         telemetry.update();
         telemetry.update();
+    }
+
+    @Override
+    public void stop() {
+        super.stop();
+        util.stop();
     }
 }
