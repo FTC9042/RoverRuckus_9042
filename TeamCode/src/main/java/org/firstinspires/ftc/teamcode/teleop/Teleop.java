@@ -33,6 +33,7 @@ public class Teleop extends OpMode {
         right_lift.setDirection(DcMotorSimple.Direction.REVERSE);
 
         dump.scaleRange(0,1);
+        dump.setPosition(0);
     }
 
     @Override
@@ -48,9 +49,9 @@ public class Teleop extends OpMode {
         right_lift.setPower(Math.pow(gamepad2.right_stick_y,3));
 
         if(gamepad2.right_trigger > 0){
-            power = gamepad2.right_trigger;
+            power = 1;
         }else if(gamepad2.left_trigger > 0){
-            power = -gamepad2.left_trigger;
+            power = -1;
         }else{
             power = 0;
         }
@@ -63,7 +64,7 @@ public class Teleop extends OpMode {
             dump.setPosition(1);
         }
 
-        intake.setPower(Math.pow(power, 1/5.0));
+        intake.setPower(power);
 
     }
 }

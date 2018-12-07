@@ -1,11 +1,14 @@
 package org.firstinspires.ftc.teamcode.auton;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.MineralDetection;
 
+@Autonomous(name = "Sampling Test")
 public class SamplingAuton extends LinearOpMode {
 
     @Override
@@ -45,6 +48,7 @@ public class SamplingAuton extends LinearOpMode {
         //TODO combine
         //if it can't fine at 34 inches try detecting at 17 (that is definitely possible)
         //headings
+        //========
         //Center go forward 34 inches, stop 2 seconds, go forward 34 inches
         //left go forward 17 inches, turn 45 degrees ccw, go forward 24 inches, go back 24 inches, turn 45 degrees cw
         //right go forward 17 inches, turn 45 degrees cw, go forward 24 inches, go back 24 inches, turn 45 degrees ccw

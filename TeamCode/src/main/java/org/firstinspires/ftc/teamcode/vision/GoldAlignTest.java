@@ -3,12 +3,13 @@ package org.firstinspires.ftc.teamcode.vision;
 import com.disnodeteam.dogecv.CameraViewDisplay;
 import com.disnodeteam.dogecv.DogeCV;
 import com.disnodeteam.dogecv.detectors.roverrukus.GoldAlignDetector;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
 @TeleOp(name="GoldAlignBrunswick Test", group="DogeCV")
-
+@Disabled
 public class GoldAlignTest extends OpMode
 {
     // Detector object
