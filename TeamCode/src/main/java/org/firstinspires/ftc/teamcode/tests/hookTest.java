@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "Hook Test")
+@Autonomous(name = "Hook Test", group = "landing")
 public class hookTest extends OpMode {
 
     Servo left, right;

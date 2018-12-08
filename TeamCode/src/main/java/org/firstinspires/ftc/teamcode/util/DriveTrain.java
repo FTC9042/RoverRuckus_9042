@@ -89,4 +89,8 @@ public class DriveTrain {
         double avg = (arr[2] + arr[3])/2.0;
         return avg;
     }
+
+    public void stop() {
+        setPower(0);
+    }
 }

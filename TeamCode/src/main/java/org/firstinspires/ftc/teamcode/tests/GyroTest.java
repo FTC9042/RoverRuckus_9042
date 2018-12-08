@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.tests;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
@@ -8,6 +9,7 @@ import org.firstinspires.ftc.teamcode.util.DriveTrain;
 import org.firstinspires.ftc.teamcode.util.Gyro;
 import org.firstinspires.ftc.teamcode.util.GyroProportional;
 
+@Autonomous(name = "Gyro Test", group = "turning")
 public class GyroTest extends LinearOpMode {
     private DriveTrain driveTrain;
 

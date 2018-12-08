@@ -8,7 +8,7 @@ import org.firstinspires.ftc.teamcode.util.Constants;
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
 import org.firstinspires.ftc.teamcode.util.DrivetrainProportional;
 
-@Autonomous(name = "Drive Distance Test")
+@Autonomous(name = "Drive Distance Test", group = "Driving Forward")
 public class DriveDistanceTest extends LinearOpMode{
     private DriveTrain driveTrain;
 

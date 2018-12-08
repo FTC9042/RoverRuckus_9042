@@ -37,6 +37,7 @@ public class MarkerCraterAuton extends LinearOpMode{
             //telemetry
             telemetry.addData("Left Position", leftPos);
             telemetry.addData("Right Position", rightPos);
+            telemetry.addData("Target",ticksd1);
             telemetry.update();
 
             if(Math.abs(ticksd1-leftPos) < Constants.TOLERANCE){
@@ -78,10 +79,11 @@ public class MarkerCraterAuton extends LinearOpMode{
             telemetry.addData("yaw", gyro.getYaw());
             telemetry.addData("pitch", gyro.getPitch());
             telemetry.addData("roll", gyro.getRoll());
+            telemetry.addData("target",135);
             telemetry.update();
             driveTrain.setPower(-0.3, 0.3);
 
-            if(Math.abs(gyro.getYaw()) >= 135 ){
+            if(Math.abs(gyro.getHeading()) >= 135 ){
                 driveTrain.setPower(0);
                 break;
             }
@@ -113,6 +115,7 @@ public class MarkerCraterAuton extends LinearOpMode{
 
             telemetry.addData("Left Displacement", leftDisplacement);
             telemetry.addData("Right Displacement", rightDisplacement);
+            telemetry.addData("Target",ticksd2);
             telemetry.update();
 
             if(Math.abs(ticksd2-leftDisplacement) < Constants.TOLERANCE){

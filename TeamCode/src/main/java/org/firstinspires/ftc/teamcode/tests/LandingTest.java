@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name = "Landing Test")
+@Autonomous(name = "Landing Test", group = "landing")
 public class LandingTest extends LinearOpMode {
     DcMotor extend;
     DcMotor left_lift, right_lift;
@@ -27,8 +27,8 @@ public class LandingTest extends LinearOpMode {
         left_lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         right_lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
-        left_lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        right_lift.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        left_lift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        right_lift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         left_lift.setTargetPosition(0);
         left_lift.setPower(1);
@@ -43,8 +43,8 @@ public class LandingTest extends LinearOpMode {
         ElapsedTime t = new ElapsedTime();
         t.startTime();
         while(opModeIsActive() & t.seconds()<1){
-            left_lift.setPower(-0.4);
-            right_lift.setPower(-0.4);
+            left_lift.setPower(0.4);
+            right_lift.setPower(0.4);
         }
         left_lift.setPower(0);
         right_lift.setPower(0);

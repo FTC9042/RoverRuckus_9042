@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-@Autonomous(name = "Lifter Test")
+@Autonomous(name = "Lifter Test", group = "landing")
 public class LifterTest  extends OpMode {
     DcMotor extend;
     DcMotor left_lift, right_lift;
