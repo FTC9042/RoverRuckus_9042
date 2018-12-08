@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.util;
 public class Constants {
     //Drivetrain PID
     public static final double P_CONSTANT_DRIVING = 0.08;
-    public static final double P_CONSTANT_TURNING = 0.0035;
+    public static final double P_CONSTANT_TURNING = 0.01;
 
     //hardware map values
     public static final String DRIVE_MOTOR_TL = "0";

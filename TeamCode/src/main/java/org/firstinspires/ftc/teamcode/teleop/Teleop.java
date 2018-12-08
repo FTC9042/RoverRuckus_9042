@@ -45,8 +45,10 @@ public class Teleop extends OpMode {
         }
 
         extend.setPower(gamepad2.left_stick_y);
-        left_lift.setPower(Math.pow(gamepad2.right_stick_y,3));
-        right_lift.setPower(Math.pow(gamepad2.right_stick_y,3));
+
+        //>1 up
+        left_lift.setPower(0.75*Math.pow(gamepad2.right_stick_y,3));
+        right_lift.setPower(0.75*Math.pow(gamepad2.right_stick_y,3));
 
         if(gamepad2.right_trigger > 0){
             power = 1;
