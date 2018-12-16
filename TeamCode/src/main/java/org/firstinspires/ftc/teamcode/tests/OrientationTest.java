@@ -1,11 +1,13 @@
 package org.firstinspires.ftc.teamcode.tests;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 import org.firstinspires.ftc.teamcode.util.Gyro;
 import org.firstinspires.ftc.teamcode.util.Logging;
 
+@Disabled
 @Autonomous(name = "Orientation Test", group = "turning")
 public class OrientationTest extends OpMode {
 

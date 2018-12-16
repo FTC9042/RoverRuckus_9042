@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.DriveTrain;
 
@@ -17,6 +18,7 @@ public class Teleop extends OpMode {
 
     Servo dump;
     private double power = 0;
+    private boolean toggle = false;
 
     @Override
     public void init() {
@@ -32,8 +34,11 @@ public class Teleop extends OpMode {
         right_lift.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         right_lift.setDirection(DcMotorSimple.Direction.REVERSE);
 
+
         dump.scaleRange(0,1);
         dump.setPosition(0);
+
+        intake.setPower(0.01);
     }
 
     @Override
@@ -44,18 +49,39 @@ public class Teleop extends OpMode {
             driveTrain.setPower(Math.pow(this.gamepad1.left_stick_y,3), Math.pow(this.gamepad1.right_stick_y,3));
         }
 
-        extend.setPower(gamepad2.left_stick_y);
+        if(gamepad2.b){
+            if(toggle){
+                toggle = false;
+            }else{
+                toggle = true;
+            }
+        }
 
-        //>1 up
-        left_lift.setPower(0.75*Math.pow(gamepad2.right_stick_y,3));
-        right_lift.setPower(0.75*Math.pow(gamepad2.right_stick_y,3));
+        if(toggle){
+            if(gamepad2.left_stick_y==0) {
+                extend.setPower(-0.15);
+            }else{
+                extend.setPower(gamepad2.left_stick_y);
+                toggle = false;
+            }
+        }else{
+            extend.setPower(gamepad2.left_stick_y);
+        }
+
 
         if(gamepad2.right_trigger > 0){
-            power = 1;
+            power = 0;
         }else if(gamepad2.left_trigger > 0){
             power = -1;
+        }
+
+        //>1 up
+        if(gamepad2.a){
+            left_lift.setPower(-0.2);
+            right_lift.setPower(-0.2);
         }else{
-            power = 0;
+            left_lift.setPower(Math.pow(gamepad2.right_stick_y,3));
+            right_lift.setPower(Math.pow(gamepad2.right_stick_y,3));
         }
 
         if(gamepad2.right_bumper) {
@@ -63,10 +89,12 @@ public class Teleop extends OpMode {
         }
 
         if(gamepad2.left_bumper){
-            dump.setPosition(1);
+            dump.setPosition(0.93); // 1 - 10/180
         }
 
         intake.setPower(power);
 
+        telemetry.addData("Toggle", toggle);
+        telemetry.update();
     }
 }

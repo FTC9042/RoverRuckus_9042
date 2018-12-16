@@ -2,12 +2,14 @@ package org.firstinspires.ftc.teamcode.auton;
 
 import com.disnodeteam.dogecv.detectors.roverrukus.SamplingOrderDetector;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.util.MineralDetection;
 
+@Disabled
 @Autonomous(name = "Sampling Test")
 public class SamplingAuton extends LinearOpMode {
 
