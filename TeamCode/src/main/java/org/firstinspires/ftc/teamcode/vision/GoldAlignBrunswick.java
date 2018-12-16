@@ -54,7 +54,7 @@ public class GoldAlignBrunswick extends LinearOpMode {
             telemetry.addData("Driving", "Forward");
             telemetry.update();
         }
-
+;
         driveTrain.setPower(0);
 
         t.reset();

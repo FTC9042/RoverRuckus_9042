@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.tests;
+package org.firstinspires.ftc.teamcode.auton;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.util.DriveTrain;
 import org.firstinspires.ftc.teamcode.util.Gyro;
 
 @Disabled
-@Autonomous(name = "Land Test", group = "landing")
+@Autonomous(name = "Landing Test", group = "landing")
 public class LandingTest extends LinearOpMode {
     DcMotor extend;
     DcMotor left_lift, right_lift;
@@ -41,6 +41,7 @@ public class LandingTest extends LinearOpMode {
 
         left_lift.setPower(-0.2);
         right_lift.setPower(-0.2);
+        hardwareMap.dcMotor.get("intake").setPower(-1);
 
         waitForStart();
 
